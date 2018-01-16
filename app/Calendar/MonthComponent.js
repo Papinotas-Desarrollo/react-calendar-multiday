@@ -80,7 +80,7 @@ MonthComponent.propTypes = {
 }
 
 MonthComponent.defaultProps = {
-  minDate: moment().subtract(1, 'year').toString()
+  minDate: moment().subtract(1, 'year').format('YYYY-MM-DD').toString()
 };
 
 export default MonthComponent
