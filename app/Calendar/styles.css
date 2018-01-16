@@ -7,7 +7,7 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	background-color: white;
+	background-color: #eef7fd;
 }
 
 .o_day-picker .i_day-picker-title {
@@ -80,7 +80,7 @@
 }
 
 .o_day-picker .i_day-picker-row [class*="-day"]:hover {
-	background-color: rgba(184, 233, 134, .4) !important;
+	background-color: #ffcbcf !important;
 }
 
 .o_day-picker .i_day-picker-row .selected-day {

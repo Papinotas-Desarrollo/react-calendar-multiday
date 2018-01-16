@@ -35,7 +35,7 @@ const MonthComponent = props => {
                         label={d.moment.date()}
                         date={d}
                         isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
-                        isOutOfRange={d.moment.isBefore(moment(minDate), 'day')}
+                        isOutOfRange={d.moment.isBefore(moment(minDate), 'day') || d.moment.isAfter(moment(maxDate), 'day')}
                         selected={selected}
                         channels={channels}
                         currentChannel={currentChannel}
