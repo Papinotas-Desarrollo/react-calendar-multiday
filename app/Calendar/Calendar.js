@@ -13,6 +13,7 @@ class Calendar extends Component {
     isMultiple: false,
     selected: [],
     channels: null,
+    minDate: moment().subtract(30, 'year').format('YYYY-MM-DD').toString()
   }
 
   constructor (props) {
@@ -191,11 +192,7 @@ Calendar.propTypes = {
   currentChannel: PropTypes.number,
   reset: PropTypes.bool,
   isMultiple: PropTypes.bool,
-  minDate: PropTypes.string,
+  minDate: PropTypes.string
 }
-
-Calendar.defaultProps = {
-  minDate: moment().subtract(30, 'year').format('YYYY-MM-DD').toString()
-};
 
 export default Calendar
