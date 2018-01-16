@@ -35,7 +35,7 @@ const MonthComponent = props => {
                         label={d.moment.date()}
                         date={d}
                         isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
-                        isInThePast={d.moment.isBefore(moment(), 'day')}
+                        isInThePast={d.moment.isBefore(moment(this.props.minDate), 'day')}
                         selected={selected}
                         channels={channels}
                         currentChannel={currentChannel}
@@ -76,6 +76,11 @@ MonthComponent.propTypes = {
   type: PropTypes.string,
   channels: PropTypes.object,
   currentChannel: PropTypes.number,
+  minDate: PropTypes.string,
 }
+
+MonthComponent.defaultProps = {
+  minDate: moment().subtract(1, 'year').toString()
+};
 
 export default MonthComponent
