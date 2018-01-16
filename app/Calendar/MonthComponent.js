@@ -35,7 +35,6 @@ const MonthComponent = props => {
                         label={d.moment.date()}
                         date={d}
                         isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
-                        isInThePast={false}
                         selected={selected}
                         channels={channels}
                         currentChannel={currentChannel}
