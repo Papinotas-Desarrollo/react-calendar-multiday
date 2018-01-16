@@ -192,8 +192,8 @@ Calendar.propTypes = {
   currentChannel: PropTypes.number,
   reset: PropTypes.bool,
   isMultiple: PropTypes.bool,
-  minDate: PropType.object,
-  maxDate: PropType.object
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object
 }
 
 Calendar.defaultProps = {

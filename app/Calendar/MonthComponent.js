@@ -35,7 +35,7 @@ const MonthComponent = props => {
                         label={d.moment.date()}
                         date={d}
                         isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
-                        isInThePast={(d.moment.isBefore(this.props.minDate, 'day') || d.moment.isBefore(this.props.maxDate, 'day'))}
+                        isInThePast={(d.moment.isBefore(this.props.minDate, 'day') || d.moment.isAfter(this.props.maxDate, 'day'))}
                         selected={selected}
                         channels={channels}
                         currentChannel={currentChannel}
@@ -76,8 +76,8 @@ MonthComponent.propTypes = {
   type: PropTypes.string,
   channels: PropTypes.object,
   currentChannel: PropTypes.number,
-  minDate: PropType.object,
-  maxDate: PropType.object
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object
 }
 
 MonthComponent.defaultProps = {

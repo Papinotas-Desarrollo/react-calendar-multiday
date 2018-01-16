@@ -31,8 +31,7 @@ DefaultDayComponent.propTypes = {
   label: PropTypes.number,
   date: PropTypes.object,
   isToday: PropTypes.bool,
-  isInThePast: PropTypes.bool,
-  isOutOfRange: PropTypes.bool,
+  isInThePast: PropTypes.bool
 }
 
 export const getStyle = function ({date, isSelected, isCurrentChannelSelected}) {
