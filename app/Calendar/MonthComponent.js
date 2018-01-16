@@ -76,7 +76,7 @@ MonthComponent.propTypes = {
   type: PropTypes.string,
   channels: PropTypes.object,
   currentChannel: PropTypes.number,
-  minDate: PropTypes.string
+  minDate: PropTypes.string,
   maxDate: PropTypes.string
 }
 

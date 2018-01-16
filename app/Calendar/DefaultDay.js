@@ -31,7 +31,7 @@ DefaultDayComponent.propTypes = {
   label: PropTypes.number,
   date: PropTypes.object,
   isToday: PropTypes.bool,
-  isOutOfRange: PropTypes.bool
+  isOutOfRange: PropTypes.bool,
   isInThePast: PropTypes.bool
 }
 
