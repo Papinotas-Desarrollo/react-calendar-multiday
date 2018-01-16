@@ -6,7 +6,7 @@ import moment from 'moment'
 
 const MonthComponent = props => {
   const { days, dayNames, selected, nextMonth, prevMonth, defaultDate, onClick,
-	         reset, DayComponent, addChannel, channels, currentChannel, minDate } = props
+	         reset, DayComponent, addChannel, channels, currentChannel, minDate, maxDate } = props
   const weeks = splitEvery(7, days)
   return (
       <div className={'o_day-picker'}>
@@ -35,7 +35,7 @@ const MonthComponent = props => {
                         label={d.moment.date()}
                         date={d}
                         isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
-                        isInThePast={d.moment.isBefore(moment(minDate), 'day')}
+                        isOutOfRange={d.moment.isBefore(moment(minDate), 'day')}
                         selected={selected}
                         channels={channels}
                         currentChannel={currentChannel}
@@ -77,10 +77,12 @@ MonthComponent.propTypes = {
   channels: PropTypes.object,
   currentChannel: PropTypes.number,
   minDate: PropTypes.string
+  maxDate: PropTypes.string
 }
 
 MonthComponent.defaultProps = {
   minDate: moment().subtract(30, 'year').format('YYYY-MM-DD').toString()
+  maxDate: moment().add(30, 'year').format('YYYY-MM-DD').toString()
 };
 
 export default MonthComponent

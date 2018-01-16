@@ -21,8 +21,8 @@ const DefaultDayComponent = props => {
   return (
     <div onClick={onClick}
       className={getStyle(props)}
-      style={getInline(isToday, isInThePast)}
-      disabled={isInThePast}>
+      style={getInline(isToday, isOutOfRange)}
+      disabled={isOutOfRange}>
       {label}
     </div>)
 }
@@ -31,6 +31,7 @@ DefaultDayComponent.propTypes = {
   label: PropTypes.number,
   date: PropTypes.object,
   isToday: PropTypes.bool,
+  isOutOfRange: PropTypes.bool
   isInThePast: PropTypes.bool
 }
 
