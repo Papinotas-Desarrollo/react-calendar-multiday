@@ -13,7 +13,7 @@ class Calendar extends Component {
     isMultiple: false,
     selected: [],
     channels: null,
-    minDate: moment().subtract(30, 'year').format('YYYY-MM-DD').toString()
+    minDate: moment().subtract(30, 'year').format('YYYY-MM-DD').toString(),
     maxDate: moment().add(30, 'year').format('YYYY-MM-DD').toString()
   }
 
