@@ -6,7 +6,7 @@ import moment from 'moment'
 
 const MonthComponent = props => {
   const { days, dayNames, selected, nextMonth, prevMonth, defaultDate, onClick,
-	         reset, DayComponent, addChannel, channels, currentChannel } = props
+	         reset, DayComponent, addChannel, channels, currentChannel, minDate } = props
   const weeks = splitEvery(7, days)
   return (
       <div className={'o_day-picker'}>
