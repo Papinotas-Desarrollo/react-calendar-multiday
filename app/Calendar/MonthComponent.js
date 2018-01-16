@@ -9,6 +9,7 @@ const MonthComponent = props => {
 	         reset, DayComponent, addChannel, channels, currentChannel } = props
   const weeks = splitEvery(7, days)
   return (
+      const isInThePast = d.moment.isBefore(moment().subtract(1, 'year'), 'day') || d.moment.isAfter(moment().add(1, 'year'), 'day')
       <div className={'o_day-picker'}>
         <div className={'e_day-picker-buttons'}>
           <div onClick={prevMonth} className={'e_day-picker-arrow-container'}>
@@ -35,7 +36,7 @@ const MonthComponent = props => {
                         label={d.moment.date()}
                         date={d}
                         isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
-                        isInThePast={(d.moment.isBefore(this.props.minDate, 'day') || d.moment.isAfter(this.props.maxDate, 'day'))}
+                        isInThePast={false}
                         selected={selected}
                         channels={channels}
                         currentChannel={currentChannel}
