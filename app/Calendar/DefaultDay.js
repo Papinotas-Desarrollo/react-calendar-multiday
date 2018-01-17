@@ -6,7 +6,7 @@ const getInline = (today, before) => ({
   cursor: before ? 'not-allowed' : 'inherit',
   background: today
   ? 'rgba(141, 224, 229, 0.5)'
-  : before ? 'rgba(155, 155, 155, .2)' : 'inherit',
+  : before ? 'rgba(155, 155, 155, .2)' : '',
 })
 
 const DefaultDayComponent = props => {
