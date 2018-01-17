@@ -7,7 +7,7 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	background-color: #eef7fd;
+	background-color: white;
 }
 
 .o_day-picker .i_day-picker-title {
@@ -77,6 +77,7 @@
 	min-height: 4em;
 	transition: .1s background linear;
 	outline: none;
+	background-color: #eef7fd;
 }
 
 .o_day-picker .i_day-picker-row [class*="-day"]:hover {
