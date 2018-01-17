@@ -10,8 +10,8 @@ const getInline = (today, before) => ({
 })
 
 const DefaultDayComponent = props => {
-  const { label, date, isToday, isInThePast, isOutOfRange, isCurrentChannelSelected, isSelected } = props
-  const disableDate = date.moment.isBefore(moment(), 'day')
+  const { label, date, isToday, isOutOfRange, isCurrentChannelSelected, isSelected } = props
+  const disableDate = isOutOfRange
   const onClick = (e) => {
     if (disableDate || (!isCurrentChannelSelected && isSelected)) {
       e.stopPropagation()
@@ -31,8 +31,7 @@ DefaultDayComponent.propTypes = {
   label: PropTypes.number,
   date: PropTypes.object,
   isToday: PropTypes.bool,
-  isOutOfRange: PropTypes.bool,
-  isInThePast: PropTypes.bool
+  isOutOfRange: PropTypes.bool
 }
 
 export const getStyle = function ({date, isSelected, isCurrentChannelSelected}) {
