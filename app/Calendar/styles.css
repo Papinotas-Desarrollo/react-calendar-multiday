@@ -94,7 +94,7 @@
 }
 
 .o_day-picker .i_day-picker-row .next-month-day {
-	color: #b3b3b3;
+	color: #b3b3b3 !important;
 }
 
 .i_day-picker-actions button{
@@ -142,6 +142,6 @@
 }
 
 .o_selected-current-channel-day {
-	background: #ffcbcf !important;
-	color: #000 !important;
+	background: #ffcbcf;
+	color: #000;
 }
