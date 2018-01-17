@@ -77,7 +77,7 @@
 	min-height: 4em;
 	transition: .1s background linear;
 	outline: none;
-	background-color: #eef7fd !important;
+	background-color: #eef7fd;
 }
 
 .o_day-picker .i_day-picker-row [class*="-day"]:hover {
