@@ -12,7 +12,7 @@ export const setMonthDays = (month, moment) => {
   const nextMonthD = Array.from(getMonthRange(incMonth(moment(month)), moment).by('day'))
   const previousMonthD = Array.from(getMonthRange(decMonth(moment(month)), moment).by('day'))
   const monthDays = Array.from(getMonthRange(month, moment).by('day')).map(m => ({moment: m, type: TYPE.MONTH}))
-  const weekIndexes = monthDays.map(d => d.moment.day())
+  const weekIndexes = monthDays.map(d => d.moment.weekday())
   const nextMonthDays = take(subtract(6, last(weekIndexes)), nextMonthD).map(m => ({moment: m, type: TYPE.NEXT}))
   const prevMonthDays = takeLast(head(weekIndexes), previousMonthD).map(m => ({moment: m, type: TYPE.PREV}))
   return prevMonthDays.concat(monthDays, nextMonthDays)
