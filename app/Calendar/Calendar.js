@@ -19,13 +19,14 @@ class Calendar extends Component {
 
   constructor (props) {
     super(props)
-    moment.locale('America/Santiago')
+    moment.locale('es')
     this.moment = extendMoment(moment)
     const {selected, channels} = this.props
     const defaultDate = this.moment(getRealMonthAndYear(this.props.month, this.props.year))
 
     this.state = {
       defaultDate: defaultDate,
+      dayNames: moment.weekdaysMin(true),
       selected: normalize(selected, this.moment),
       monthDays: setMonthDays(defaultDate, this.moment),
       channels,
@@ -166,7 +167,7 @@ class Calendar extends Component {
         <MonthComponent
             currentChannel={currentChannel}
             channels={channels}
-            dayNames={moment.weekdaysMin(true)}
+            dayNames={this.state.dayNames}
             days={monthDays}
             selected={this.retrieveSelected()}
             defaultDate={defaultDate}
