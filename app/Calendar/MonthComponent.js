@@ -1,65 +1,65 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {splitEvery, isNil, isEmpty} from 'ramda'
+import { splitEvery, isNil, isEmpty } from 'ramda'
 import DayWrapper from './DayWrapper'
 import moment from 'moment'
 
 const MonthComponent = props => {
   const { days, dayNames, selected, nextMonth, prevMonth, defaultDate, onClick,
-	         reset, DayComponent, addChannel, channels, currentChannel, minDate, maxDate } = props
+    reset, DayComponent, addChannel, channels, currentChannel, minDate, maxDate } = props
   const weeks = splitEvery(7, days)
   return (
-      <div className={'o_day-picker'}>
-        <div className={'e_day-picker-buttons'}>
-          <div onClick={prevMonth} className={'e_day-picker-arrow-container'}>
-            <div className={'i_day-picker-arrow-left'} />
-          </div>
-          <div className={'i_day-picker-title'}>
-            {defaultDate.format('MMMM YYYY')}
-          </div>
-          <div onClick={nextMonth} className={'e_day-picker-arrow-container'}>
-            <div className={'i_day-picker-arrow-right'} />
-          </div>
+    <div className={'o_day-picker'}>
+      <div className={'e_day-picker-buttons'}>
+        <div onClick={prevMonth} className={'e_day-picker-arrow-container'}>
+          <div className={'i_day-picker-arrow-left'} />
         </div>
-        <div className={'i_day-picker-header'}>
-          {dayNames.map(n =>
-              <div key={n}>{n}</div>
-          )} {/* we can pass this as props as well */}
+        <div className={'i_day-picker-title'}>
+          {defaultDate.format('MMMM YYYY').charAt(0).toUpperCase() + defaultDate.format('MMMM YYYY').slice(1).toLowerCase()}
         </div>
-        <div className={'i_day-picker-body'}>
-          {weeks.map((w, index) =>
-              <div key={index} className={'i_day-picker-row'}>
-                {w.map((d, i) =>
-                    <DayWrapper
-                        key={i}
-                        label={d.moment.date()}
-                        date={d}
-                        isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
-                        isOutOfRange={d.moment.isBefore(moment(minDate), 'day') || d.moment.isAfter(moment(maxDate), 'day')}
-                        selected={selected}
-                        channels={channels}
-                        currentChannel={currentChannel}
-                        onClick={onClick}>
-                      {DayComponent}
-                    </DayWrapper>
-                )}
-              </div>
-          )}
+        <div onClick={nextMonth} className={'e_day-picker-arrow-container'}>
+          <div className={'i_day-picker-arrow-right'} />
         </div>
-	       <div className={'i_day-picker-actions'}>
-          { reset &&
-            <button className={'i_day-picker-reset'} onClick={reset}>
-              {'reset'}
-            </button>
-          }
-          { addChannel &&
-            <button className={'i_day-picker-add-channel'} onClick={addChannel}
-            disabled={isNil(channels[currentChannel]) || isEmpty(channels[currentChannel])}>
-              {'save channel'}
-            </button>
-          }
-	       </div>
       </div>
+      <div className={'i_day-picker-header'}>
+        {dayNames.map(n =>
+          <div key={n}>{n}</div>
+        )} {/* we can pass this as props as well */}
+      </div>
+      <div className={'i_day-picker-body'}>
+        {weeks.map((w, index) =>
+          <div key={index} className={'i_day-picker-row'}>
+            {w.map((d, i) =>
+              <DayWrapper
+                key={i}
+                label={d.moment.date()}
+                date={d}
+                isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
+                isOutOfRange={d.moment.isBefore(minDate, 'day') || d.moment.isAfter(maxDate, 'day')}
+                selected={selected}
+                channels={channels}
+                currentChannel={currentChannel}
+                onClick={onClick}>
+                {DayComponent}
+              </DayWrapper>
+            )}
+          </div>
+        )}
+      </div>
+      <div className={'i_day-picker-actions'}>
+        {reset &&
+          <button className={'i_day-picker-reset'} onClick={reset}>
+            {'reset'}
+          </button>
+        }
+        {addChannel &&
+          <button className={'i_day-picker-add-channel'} onClick={addChannel}
+            disabled={isNil(channels[currentChannel]) || isEmpty(channels[currentChannel])}>
+            {'save channel'}
+          </button>
+        }
+      </div>
+    </div>
   )
 }
 
@@ -76,13 +76,8 @@ MonthComponent.propTypes = {
   type: PropTypes.string,
   channels: PropTypes.object,
   currentChannel: PropTypes.number,
-  minDate: PropTypes.string,
-  maxDate: PropTypes.string
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object
 }
-
-MonthComponent.defaultProps = {
-  minDate: moment().subtract(30, 'year').format('YYYY-MM-DD').toString(),
-  maxDate: moment().add(30, 'year').format('YYYY-MM-DD').toString()
-};
 
 export default MonthComponent
