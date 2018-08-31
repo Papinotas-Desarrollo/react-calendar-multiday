@@ -13,13 +13,12 @@ class Calendar extends Component {
     isMultiple: false,
     selected: [],
     channels: null,
-    minDate: moment().subtract(30, 'year').format('YYYY-MM-DD').toString(),
-    maxDate: moment().add(30, 'year').format('YYYY-MM-DD').toString()
+    minDate: moment().subtract(30, 'year'),
+    maxDate: moment().add(30, 'year')
   }
 
   constructor (props) {
     super(props)
-    moment.locale('es')
     this.moment = extendMoment(moment)
     const {selected, channels} = this.props
     const defaultDate = this.moment(getRealMonthAndYear(this.props.month, this.props.year))
@@ -133,10 +132,10 @@ class Calendar extends Component {
       channels[currentChannel] = []
     }
 
-    if (!channels[currentChannel].some(d => d.isSame(day.moment, 'day'))) {
+    if (!channels[currentChannel].some(d => d.format('YYYY-MM-DD') === day.moment.format('YYYY-MM-DD'))) {
       channels[currentChannel] =  channels[currentChannel].concat([day.moment])
     } else {
-      channels[currentChannel] = channels[currentChannel].filter(d => !d.isSame(day.moment, 'day'))
+      channels[currentChannel] = channels[currentChannel].filter(d => !d.format('YYYY-MM-DD') === day.moment.format('YYYY-MM-DD'))
     }
     return channels
   }
@@ -196,8 +195,8 @@ Calendar.propTypes = {
   currentChannel: PropTypes.number,
   reset: PropTypes.bool,
   isMultiple: PropTypes.bool,
-  minDate: PropTypes.string,
-  maxDate: PropTypes.string
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object
 }
 
 export default Calendar

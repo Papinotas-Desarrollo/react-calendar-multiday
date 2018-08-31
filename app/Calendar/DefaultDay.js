@@ -5,8 +5,8 @@ import moment from 'moment'
 const getInline = (today, before) => ({
   cursor: before ? 'not-allowed' : 'inherit',
   background: today
-  ? 'rgba(141, 224, 229, 0.5)'
-  : before ? 'rgba(155, 155, 155, .2)' : '',
+    ? 'rgba(141, 224, 229, 0.5)'
+    : before ? 'rgba(155, 155, 155, .2)' : '',
 })
 
 const DefaultDayComponent = props => {
@@ -31,10 +31,11 @@ DefaultDayComponent.propTypes = {
   label: PropTypes.number,
   date: PropTypes.object,
   isToday: PropTypes.bool,
-  isOutOfRange: PropTypes.bool
+  isOutOfRange: PropTypes.bool,
+  isSelected: PropTypes.bool
 }
 
-export const getStyle = function ({date, isSelected, isCurrentChannelSelected}) {
+export const getStyle = function ({ date, isSelected, isCurrentChannelSelected }) {
   return `${isCurrentChannelSelected
     ? 'o_selected-current-channel-day' : isSelected ? 'o_selected-day' : ''} ${date.type}-day`
 }
