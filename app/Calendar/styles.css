@@ -80,8 +80,12 @@
 	background-color: #eef7fd;
 }
 
-.o_day-picker .i_day-picker-row [class*="-day"]:hover {
-	background-color: #ffcbcf !important;
+.o_day-picker .o_selected-current-channel-day:hover {
+	background-color: #bddaec !important;
+}
+
+.o_day-picker .o_not_selected-day:hover {
+	background-color: #f1a0a7 !important;
 }
 
 .o_day-picker .i_day-picker-row .selected-day {

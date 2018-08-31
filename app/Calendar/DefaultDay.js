@@ -37,7 +37,7 @@ DefaultDayComponent.propTypes = {
 
 export const getStyle = function ({ date, isSelected, isCurrentChannelSelected }) {
   return `${isCurrentChannelSelected
-    ? 'o_selected-current-channel-day' : isSelected ? 'o_selected-day' : ''} ${date.type}-day`
+    ? 'o_selected-current-channel-day' : isSelected ? 'o_selected-day' : 'o_not_selected-day'} ${date.type}-day`
 }
 
 export default DefaultDayComponent
