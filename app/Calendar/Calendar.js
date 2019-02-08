@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import MonthComponent from './MonthComponent'
 import moment from 'moment'
 import {extendMoment} from 'moment-range'
+import 'moment/locale/es';
 import {reject, or, isEmpty, values, equals, cond, T, isNil} from 'ramda'
 import {normalize, incMonth, decMonth, setMonthDays, TYPE, getKey, getRealMonthAndYear} from './helpers'
 
